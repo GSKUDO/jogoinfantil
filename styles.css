@@ -1,0 +1,102 @@
+#titlepage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(assets/images/backgroundstart.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#loginpage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#registerpage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#registeruser{
+    padding: 30px;
+    border: navy;
+    border-style: dotted;
+}
+
+#forgetpasswordpage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gamepage{
+    background-size: cover;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#gamehead{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#gametitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameimage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#catexample{
+   height: 200px;
+   width: 200px;
+}
+
+#gameputword{
+    margin: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#gameletters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.putletter{
+    height: 40px;
+    width: 40px;
+}
+
+#gamefoot{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}

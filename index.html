@@ -1,0 +1,114 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="infantil.js" defer></script>
+    <title>Aprenda ingles brincando!</title>
+
+</head>
+
+<body>
+
+    <audio id="theme" loop></audio>
+    <audio id="sound"></audio>
+    
+    <section id="titlepage">
+        <h1 id="title">English game</h1>
+        <button id="start" onclick="start()">Begin</button>
+    </section>
+    
+    <br>
+    
+    <section id="loginpage" style="display:none">
+        <form>
+            <label for="username">Username: </label>
+            <input type="text">
+            <br>
+            <br>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+        </form>
+        <button onclick="startgame()">Submit</button>
+        <br>
+        <button onclick="goregister()">New user</button>
+        <p onclick="goforget()">Esqueci minha senha</p>
+    </section>
+
+    <section id="registerpage" style="display:none">
+        <h1>Cadastro</h1>
+        <form id="registeruser">
+            <label for="name">Nome:</label>
+            <input type="text">
+            <br>
+            <br>
+            <label for="datebirth">Data de Nascimento:</label>
+            <input type="date">
+            <br>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <br>
+            <br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Apagar</button>
+        </form>
+        <button onclick="backlogin()">Back</button>
+    </section>
+
+    <section id="forgetpasswordpage" style="display:none">
+        <h1>Recupere sua senha:</h1>
+        <form>
+            <label for="forgetemail">Email:</label>
+            <input type="email" name="forgetemail" id="forgetemail">
+            <button type="submit">Submit</button>
+            <button type="reset">Clear</button>
+        </form>
+        <button onclick="backlogin()">Back
+        <div id="gamehead">
+            <p>Welcome "usuario"</p>
+            <p>Level 1</p>
+        </div>
+        
+        <div id="gametitle">
+            <h1>Let's play!</h1>
+            <h3>Form the word</h3>
+        </div>
+        
+        <div id="gameimage">
+            <img id="catexample" src="assets/images/gato.webp">
+        </div>
+
+        <div id="gameputword">
+            <img class="putletter" src="assets/images/quadrado.jpg">
+            <img class="putletter" src="assets/images/quadrado.jpg">
+            <img class="putletter" src="assets/images/quadrado.jpg">
+
+        </div>
+
+        <div id="gameletters">
+            <img class="putletter" src="assets/images/letra A.jpg">
+            <img class="putletter" src="assets/images/letraC.jpg">
+            <img class="putletter" src="assets/images/letraT.jpg">
+        </div>
+
+        <div id="gamefoot">
+            <button>Next</button>
+        </div>
+    </section>
+
+    <section id="resultpage" style="display:none">
+        
+        (Incluir ranking)
+        (incluir mudança de nível)
+
+        <button onclick="location.reload()">Restart!</button>
+    </section>
+</body>
+</html>
