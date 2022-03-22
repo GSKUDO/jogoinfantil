@@ -1,14 +1,47 @@
+
+@font-face {
+    font-family: 5year;
+    src: url("assets/fonts/5yearsoldfont.ttf");
+}
+
+@font-face {
+    font-family: fifth;
+    src: url("assets/fonts/Fifth-Grader.ttf");
+}
+
+@font-face {
+    font-family: fillme;
+    src: url("assets/fonts/Fill\ Me\ With\ Color\ -\ TTF.ttf");
+}
+
+@font-face {
+    font-family: liketo;
+    src: url("assets/fonts/KGILikeToMoveIt.ttf");
+}
+
+@font-face {
+    font-family: chalk;
+    src: url("assets/fonts/PWChalk.ttf");
+}
+
+body{
+    margin: 0;
+}
+
 #titlepage{
+    font-family: chalk;
+    font-size: 70px;
+    color: white;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(assets/images/backgroundstart.jpg);
+    background-image: url(assets/images/lousaclasse.jfif);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
 
 #loginpage{
@@ -45,11 +78,13 @@
 }
 
 #gamepage{
-    background-size: cover;
-    height: 90%;
-    width: 100%;
+    margin: 0;
+    background-color: rgb(10, 68, 68);
     display: flex;
     flex-direction: column;
+    color: white;
+    font-family: fifth;
+    font-size: 30px;
 }
 
 #gamehead{
@@ -58,41 +93,35 @@
     flex-direction: row;
 }
 
-#gametitle{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 #gameimage{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#catexample{
-   height: 200px;
-   width: 200px;
-}
-
-#gameputword{
-    margin: 80px;
+#droparea{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
+    align-self: center;
+    text-align: center;
 }
 
-#gameletters{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+#imgword{
+    height: 200px;
+    width: 200px;
+    background-color: #00000000;
+		-webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+		-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+		box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
 }
 
-.putletter{
-    height: 40px;
-    width: 40px;
+.drop{
+    margin: 30px;
+    border-style: dotted;
+    border-color: aqua;
+    height: 80px;
+    width: 80px;
 }
 
 #gamefoot{
@@ -100,3 +129,161 @@
     justify-content: flex-end;
     margin-bottom: 30px;
 }
+
+.dragarea {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    text-align: center;
+}
+  
+.box {
+    font-family: chalk;
+    font-size: 50px;
+    border: none;
+    padding: 10px;
+    align-items: center;
+    align-content: center;
+}
+
+#headwelcome{
+    margin-left: 30px;
+}
+
+#headlevel{
+    margin-right: 30px;
+}
+
+#next{
+    margin-right: 30px;
+}
+
+/* Add some margin to the page and set a default font and colour */
+
+body {
+    margin: 30px;
+    font-family: "Georgia", serif;
+    line-height: 1.8em;
+    color: #333;
+  }
+  
+  /* Give headings their own font */
+  
+  h1, h2, h3, h4 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+  
+  /* Main content area */
+  
+  #content {
+    margin: 80px 70px;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  
+  /* Slots for final card positions */
+  
+  #cardSlots {
+    margin: 50px auto 0 auto;
+    background: #ddf;
+  }
+  
+  /* The initial pile of unsorted cards */
+  
+  #cardPile {
+    margin: 0 auto;
+    background: #ffd;
+  }
+  
+  #cardSlots, #cardPile {
+    width: 910px;
+    height: 120px;
+    padding: 20px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  }
+  
+  /* Individual cards and slots */
+  
+  #cardSlots div, #cardPile div {
+    float: left;
+    width: 58px;
+    height: 78px;
+    padding: 10px;
+    padding-top: 40px;
+    padding-bottom: 0;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 0 0 10px;
+    background: #fff;
+  }
+  
+  #cardSlots div:first-child, #cardPile div:first-child {
+    margin-left: 0;
+  }
+  
+  #cardSlots div.hovered {
+    background: #aaa;
+  }
+  
+  #cardSlots div {
+    border-style: dashed;
+  }
+  
+  #cardPile div {
+    background: #666;
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 0 0 3px #000;
+  }
+  
+  #cardPile div.ui-draggable-dragging {
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  }
+  
+  /* Individually coloured cards */
+  
+  #card1.correct { background: red; }
+  #card2.correct { background: brown; }
+  #card3.correct { background: orange; }
+  #card4.correct { background: yellow; }
+  #card5.correct { background: green; }
+  #card6.correct { background: cyan; }
+  #card7.correct { background: blue; }
+  #card8.correct { background: indigo; }
+  #card9.correct { background: purple; }
+  #card10.correct { background: violet; }
+  
+  
+  /* "You did it!" message */
+  #successMessage {
+    position: absolute;
+    left: 580px;
+    top: 250px;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    background: #dfd;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px;
+  }
+  
+  
+  

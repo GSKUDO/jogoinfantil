@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
-        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     <script src="infantil.js" defer></script>
     <title>Aprenda ingles brincando!</title>
 
@@ -20,8 +18,8 @@
     <audio id="sound"></audio>
     
     <section id="titlepage">
-        <h1 id="title">English game</h1>
-        <button id="start" onclick="start()">Begin</button>
+        <h1 id="title">WORD GAME</h1>
+        <button id="start" onclick="start()">START</button>
     </section>
     
     <br>
@@ -29,7 +27,7 @@
     <section id="loginpage" style="display:none">
         <form>
             <label for="username">Username: </label>
-            <input type="text">
+            <input id="username" type="text">
             <br>
             <br>
             <label for="password">Password: </label>
@@ -70,37 +68,32 @@
             <button type="submit">Submit</button>
             <button type="reset">Clear</button>
         </form>
-        <button onclick="backlogin()">Back
-        <div id="gamehead">
-            <p>Welcome "usuario"</p>
-            <p>Level 1</p>
-        </div>
+        <button onclick="backlogin()">Back</button>
+    </section>
+
+    <section id="gamepage" style="display: none;">
         
-        <div id="gametitle">
-            <h1>Let's play!</h1>
-            <h3>Form the word</h3>
+        <div id="gamehead">
+            <p id="headwelcome">Welcome "usuario"</p>
+            <p id="headlevel">Level 1</p>
         </div>
         
         <div id="gameimage">
-            <img id="catexample" src="assets/images/gato.webp">
+            <img id="imgword">
         </div>
 
-        <div id="gameputword">
-            <img class="putletter" src="assets/images/quadrado.jpg">
-            <img class="putletter" src="assets/images/quadrado.jpg">
-            <img class="putletter" src="assets/images/quadrado.jpg">
+        <div id="content">
 
+            <div id="cardPile"> </div>
+            <div id="cardSlots"> </div>
+          
+            <div id="successMessage">
+              <h2>You did it!</h2>
+              <button onclick="init()">Next Word</button>
+            </div>
+          
         </div>
 
-        <div id="gameletters">
-            <img class="putletter" src="assets/images/letra A.jpg">
-            <img class="putletter" src="assets/images/letraC.jpg">
-            <img class="putletter" src="assets/images/letraT.jpg">
-        </div>
-
-        <div id="gamefoot">
-            <button>Next</button>
-        </div>
     </section>
 
     <section id="resultpage" style="display:none">
