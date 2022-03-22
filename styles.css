@@ -1,6 +1,6 @@
 
 @font-face {
-    font-family: 5year;
+    font-family: fiveyear;
     src: url("assets/fonts/5yearsoldfont.ttf");
 }
 
@@ -26,6 +26,7 @@
 
 body{
     margin: 0;
+    background-color: rgb(10, 68, 68);
 }
 
 #titlepage{
@@ -44,42 +45,8 @@ body{
     background-size: cover;
 }
 
-#loginpage{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#registerpage{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#registeruser{
-    padding: 30px;
-    border: navy;
-    border-style: dotted;
-}
-
-#forgetpasswordpage{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 #gamepage{
     margin: 0;
-    background-color: rgb(10, 68, 68);
     display: flex;
     flex-direction: column;
     color: white;
@@ -93,18 +60,18 @@ body{
     flex-direction: row;
 }
 
+#headwelcome{
+  margin-left: 30px;
+}
+
+#headlevel{
+  margin-right: 30px;
+}
+
 #gameimage{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#droparea{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: center;
-    text-align: center;
 }
 
 #imgword{
@@ -116,174 +83,113 @@ body{
 		box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
 }
 
-.drop{
-    margin: 30px;
-    border-style: dotted;
-    border-color: aqua;
-    height: 80px;
-    width: 80px;
+#content {
+  margin: 80px 70px;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
+#cardSlots {
+  margin: 50px auto 0 auto;
+  background: #ddf;
+}
+
+#cardPile {
+  margin: 0 auto;
+  background: #ffd;
+}
+
+#cardSlots, #cardPile {
+  width: 910px;
+  height: 120px;
+  padding: 20px;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+  
+#cardSlots div, #cardPile div {
+  float: left;
+  width: 58px;
+  height: 78px;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 0;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 0 0 10px;
+  background: #fff;
+}
+
+#cardSlots div:first-child, #cardPile div:first-child {
+  margin-left: 0;
+}
+
+#cardSlots div.hovered {
+  background: #aaa;
+}
+
+#cardSlots div {
+  border-style: dashed;
+}
+
+#cardPile div {
+  background: #666;
+  color: #fff;
+  font-size: 50px;
+  text-shadow: 0 0 3px #000;
+}
+
+#cardPile div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+#card1.correct { background: red; }
+#card2.correct { background: brown; }
+#card3.correct { background: orange; }
+#card4.correct { background: yellow; }
+#card5.correct { background: green; }
+#card6.correct { background: cyan; }
+#card7.correct { background: blue; }
+#card8.correct { background: indigo; }
+#card9.correct { background: purple; }
+#card10.correct { background: violet; }
+  
 #gamefoot{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 30px;
 }
 
-.dragarea {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    text-align: center;
-}
-  
-.box {
-    font-family: chalk;
-    font-size: 50px;
-    border: none;
-    padding: 10px;
-    align-items: center;
-    align-content: center;
-}
-
-#headwelcome{
-    margin-left: 30px;
-}
-
-#headlevel{
+#restart{
     margin-right: 30px;
 }
 
-#next{
-    margin-right: 30px;
-}
-
-/* Add some margin to the page and set a default font and colour */
-
-body {
-    margin: 30px;
-    font-family: "Georgia", serif;
-    line-height: 1.8em;
-    color: #333;
-  }
-  
-  /* Give headings their own font */
-  
-  h1, h2, h3, h4 {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  }
-  
-  /* Main content area */
-  
-  #content {
-    margin: 80px 70px;
-    text-align: center;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  
-  
-  /* Slots for final card positions */
-  
-  #cardSlots {
-    margin: 50px auto 0 auto;
-    background: #ddf;
-  }
-  
-  /* The initial pile of unsorted cards */
-  
-  #cardPile {
-    margin: 0 auto;
-    background: #ffd;
-  }
-  
-  #cardSlots, #cardPile {
-    width: 910px;
-    height: 120px;
-    padding: 20px;
-    border: 2px solid #333;
+#successMessage {
+  position: absolute;
+  margin: auto;
+  width: 0;
+  height: 0;
+  z-index: 100;
+  background: black;
+  color: white;
+  font-family: fiveyear;
+  border: 2px solid #333;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-  }
-  
-  /* Individual cards and slots */
-  
-  #cardSlots div, #cardPile div {
-    float: left;
-    width: 58px;
-    height: 78px;
-    padding: 10px;
-    padding-top: 40px;
-    padding-bottom: 0;
-    border: 2px solid #333;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    margin: 0 0 0 10px;
-    background: #fff;
-  }
-  
-  #cardSlots div:first-child, #cardPile div:first-child {
-    margin-left: 0;
-  }
-  
-  #cardSlots div.hovered {
-    background: #aaa;
-  }
-  
-  #cardSlots div {
-    border-style: dashed;
-  }
-  
-  #cardPile div {
-    background: #666;
-    color: #fff;
-    font-size: 50px;
-    text-shadow: 0 0 3px #000;
-  }
-  
-  #cardPile div.ui-draggable-dragging {
-    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-  }
-  
-  /* Individually coloured cards */
-  
-  #card1.correct { background: red; }
-  #card2.correct { background: brown; }
-  #card3.correct { background: orange; }
-  #card4.correct { background: yellow; }
-  #card5.correct { background: green; }
-  #card6.correct { background: cyan; }
-  #card7.correct { background: blue; }
-  #card8.correct { background: indigo; }
-  #card9.correct { background: purple; }
-  #card10.correct { background: violet; }
-  
-  
-  /* "You did it!" message */
-  #successMessage {
-    position: absolute;
-    left: 580px;
-    top: 250px;
-    width: 0;
-    height: 0;
-    z-index: 100;
-    background: #dfd;
-    border: 2px solid #333;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+  border-radius: 10px;
     -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-    padding: 20px;
-  }
-  
-  
-  
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+}

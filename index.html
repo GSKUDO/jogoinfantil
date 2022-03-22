@@ -19,63 +19,20 @@
     
     <section id="titlepage">
         <h1 id="title">WORD GAME</h1>
+        <label for="username">MY NAME IS : </label>
+        <br>
+        <input id="username" type="text">
+        <br>
         <button id="start" onclick="start()">START</button>
     </section>
     
     <br>
     
-    <section id="loginpage" style="display:none">
-        <form>
-            <label for="username">Username: </label>
-            <input id="username" type="text">
-            <br>
-            <br>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password">
-        </form>
-        <button onclick="startgame()">Submit</button>
-        <br>
-        <button onclick="goregister()">New user</button>
-        <p onclick="goforget()">Esqueci minha senha</p>
-    </section>
-
-    <section id="registerpage" style="display:none">
-        <h1>Cadastro</h1>
-        <form id="registeruser">
-            <label for="name">Nome:</label>
-            <input type="text">
-            <br>
-            <br>
-            <label for="datebirth">Data de Nascimento:</label>
-            <input type="date">
-            <br>
-            <br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
-            <br>
-            <br>
-            <button type="submit">Enviar</button>
-            <button type="reset">Apagar</button>
-        </form>
-        <button onclick="backlogin()">Back</button>
-    </section>
-
-    <section id="forgetpasswordpage" style="display:none">
-        <h1>Recupere sua senha:</h1>
-        <form>
-            <label for="forgetemail">Email:</label>
-            <input type="email" name="forgetemail" id="forgetemail">
-            <button type="submit">Submit</button>
-            <button type="reset">Clear</button>
-        </form>
-        <button onclick="backlogin()">Back</button>
-    </section>
-
     <section id="gamepage" style="display: none;">
         
         <div id="gamehead">
-            <p id="headwelcome">Welcome "usuario"</p>
-            <p id="headlevel">Level 1</p>
+            <p id="headwelcome"></p>
+            <p id="headlevel"></p>
         </div>
         
         <div id="gameimage">
@@ -94,14 +51,11 @@
           
         </div>
 
-    </section>
+        <div id="gamefoot">
+            <button onclick="location.reload()" id="restart">Restart!</button>
+        </div>
 
-    <section id="resultpage" style="display:none">
-        
-        (Incluir ranking)
-        (incluir mudança de nível)
-
-        <button onclick="location.reload()">Restart!</button>
     </section>
+    
 </body>
 </html>
