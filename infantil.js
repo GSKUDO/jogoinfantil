@@ -1,13 +1,16 @@
-
-// funções de mudança de tela 
+// variaveis globais da titlepage
 let username;
+
 //tela de inicio
 function start() {
     document.getElementById('titlepage').style.display = 'none';
     document.getElementById('gamepage').style.display = 'flex';
-    music.setAttribute("src", " //musica de fundo ")
-    music.volume = 1;
-    music.play();
+    username = document.getElementById("username").value;
+   
+    //mostra o cabeçalho do gamepage
+  
+    document.getElementById("headwelcome").innerHTML = "Welcome " + username;
+
 }
 
 // classe para montar as palavras
@@ -15,8 +18,8 @@ class Words{
     constructor(word, level, original, array, img, sound) {
       this.word = word //palavra
       this.level = level //nível da palavra
-      this.array = array
-      this.original = original
+      this.array = [...array]
+      this.original = [... original]
       this.img = img //imagem da palavra
       this.sound = sound //som da palavra
       this.size = 0 // tamanho da palavra 
@@ -76,34 +79,52 @@ let meat = new Words("meat", 2, ["m", "e", "a", "t"], ["m", "e", "a", "t"], "ass
 
 //level 3
 let brain = new Words("brain", 3, ["b", "r", "a", "i", "n"], ["b", "r", "a", "i", "n"], "assets/images/level3/brain.webp", "assets/sounds/level3/brain.mp4");
-let bread = new Words("bread", 3, ["b", "r", "e", "a", "d"], ["b", "r", "e", "a", "d"], "assets/images/level3/bread.webp", "assets/sounds/level3/bread.mp4");
 let candy = new Words("candy", 3, ["c", "a", "n", "d", "y"], ["c", "a", "n", "d", "y"], "assets/images/level3/candy.webp", "assets/sounds/level3/candy.mp4");
 let grape = new Words("grape", 3, ["g", "r", "a", "p", "e"], ["g", "r", "a", "p", "e"], "assets/images/level3/grape.webp", "assets/sounds/level3/grape.mp4");
 let honey = new Words("honey", 3, ["h", "o", "n", "e", "y"], ["h", "o", "n", "e", "y"], "assets/images/level3/honey.webp", "assets/sounds/level3/honey.mp4");
 let horse = new Words("horse", 3, ["h", "o", "r", "s", "e"], ["h", "o", "r", "s", "e"], "assets/images/level3/horse.webp", "assets/sounds/level3/horse.mp4");
 let shark = new Words("shark", 3, ["s", "h", "a", "r", "k"], ["s", "h", "a", "r", "k"], "assets/images/level3/shark.webp", "assets/sounds/level3/shark.mp4");
-let sheep = new Words("sheep", 3, ["s", "h", "e", "e", "p"], ["s", "h", "e", "e", "p"], "assets/images/level3/sheep.webp", "assets/sounds/level3/sheep.mp4");
-let snake = new Words("snake", 3, ["s", "n", "a", "k", "e"], ["s", "n", "a", "k", "e"], "assets/images/level3/snake.webp", "assets/sounds/level3/snake.mp4");
 let store = new Words("store", 3, ["s", "t", "o", "r", "e"], ["s", "t", "o", "r", "e"], "assets/images/level3/store.webp", "assets/sounds/level3/store.mp4");
-let watch = new Words("watch", 3, ["w", "a", "t", "c", "h"], ["w", "a", "t", "c", "h"], "assets/images/level3/watch.webp", "assets/sounds/level3/watch.mp4");
 let whale = new Words("whale", 3, ["w", "h", "a", "l", "e"], ["w", "h", "a", "l", "e"], "assets/images/level3/whale.webp", "assets/sounds/level3/whale.mp4");
-let zebra = new Words("zebra", 3, ["z", "e", "b", "r", "a"], ["z", "e", "b", "r", "a"], "assets/images/level3/zebra.webp", "assets/sounds/level3/zebra.mp4");
 
 
-var correctLetters  = 0;
+// arrays de palavras do level
 var level1 = [bed, bus, car, cat, cow, dog, hen, sun];
 var level2 = [baby, bear, coat, duck, fish, frog, lion, meat];
-var level3 = [brain, bread, candy, grape, honey, horse, shark, sheep, snake, store, watch, whale, zebra];
-var wordsize = 5;
+var level3 = [brain, candy, grape, honey, horse, shark, store, whale];
+var levelup = [level1, level2, level3];
+
+// variaveis globais do gamepage
+var correctLetters;
+var wordsize = 3;
 var indicelevel = 0;
+var indicelevelup = 0;
+var headlevelnumber = 1;
+var levelnow = levelup[indicelevelup];
+console.log(levelnow)
 
 $( init );
 
+// inicio do jogo 
 function init() {
  
   // esconde a mensagem de sucesso
   $('#successMessage').hide();
+  $('#levelupMessage').hide();
+  $('#endgameMessage').hide();
   $('#successMessage').css( {
+    left: '580px',
+    top: '250px',
+    width: 0,
+    height: 0
+  } );
+  $('#levelupMessage').css( {
+    left: '580px',
+    top: '250px',
+    width: 0,
+    height: 0
+  } );
+  $('#endgameMessage').css( {
     left: '580px',
     top: '250px',
     width: 0,
@@ -114,17 +135,14 @@ function init() {
   correctLetters  = 0;
   $('#cardPile').html( '' );
   $('#cardSlots').html( '' );
-
-  //mostra o cabeçalho 
-  $('#headwelcome').html( "Welcome" );
-  $('#headlevel').html( "Level 1" );
+  document.getElementById("headlevel").innerHTML = "Level " + headlevelnumber;
 
   // monta o jogo na tela 
-  var letters = level3[indicelevel].array;
-  var letters2 = level3[indicelevel].original;
+  var letters = levelnow[indicelevel].array;
+  var letters2 = levelnow[indicelevel].original;
 
   var img = document.querySelector("#imgword");
-  img.setAttribute('src', level3[indicelevel].img);
+  img.setAttribute('src', levelnow[indicelevel].img);
  
   for ( var i=0; i<wordsize; i++ ) {
     $('<div>' + letters[i] + '</div>').data( 'letter', letters[i] ).attr( 'id', 'card'+ (i+1) ).appendTo( '#cardPile' ).draggable( {
@@ -142,7 +160,6 @@ function init() {
       drop: handleCardDrop
     } );
   }
-
 }
 
 function handleCardDrop( event, ui ) {
@@ -162,13 +179,40 @@ function handleCardDrop( event, ui ) {
   
   // se está tudo correto, aparece mensagem de sucesso 
 
-  if ( correctLetters == level3[indicelevel].size ) {
+  if ( correctLetters == levelnow[indicelevel].size ) {
        
     indicelevel++;
-      
+    
+    if (indicelevel === 2){
+      wordsize++;
+      indicelevel = 0;
+      headlevelnumber++;
+      document.getElementById("headlevel").innerHTML = "Level " + headlevelnumber;
+      indicelevelup++;
+      $('#levelupMessage').show();
+      $('#levelupMessage').animate( {
+        left: '480px',
+        top: '200px',
+        width: '400px',
+        height: '150px',
+        opacity: 1
+      } );
+        if (indicelevelup === 3){
+          $('#endgameMessage').show();
+          $('#endgameMessage').animate( {
+            left: '480px',
+            top: '200px',
+            width: '400px',
+            height: '150px',
+            opacity: 1
+          } );
+        }
+      levelnow = levelup[indicelevelup];
+    }
+
     $('#successMessage').show();
     $('#successMessage').animate( {
-      left: '380px',
+      left: '480px',
       top: '200px',
       width: '400px',
       height: '150px',

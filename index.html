@@ -14,14 +14,16 @@
 
 <body>
 
-    <audio id="theme" loop></audio>
-    <audio id="sound"></audio>
-    
+    <audio controls>
+        <source src="assets/sounds/musica.mp3" type="audio/mp3">
+    </audio>
+
     <section id="titlepage">
         <h1 id="title">WORD GAME</h1>
-        <label for="username">MY NAME IS : </label>
-        <br>
-        <input id="username" type="text">
+        <div id="formusername">
+            <label for="username">MY NAME IS : </label>
+            <input id="username" type="text">
+        </div>
         <br>
         <button id="start" onclick="start()">START</button>
     </section>
@@ -48,7 +50,17 @@
               <h2>You did it!</h2>
               <button onclick="init()">Next Word</button>
             </div>
-          
+
+            <div id="levelupMessage">
+                <h2>Level up!</h2>
+                <button onclick="init()">Next Word</button>
+            </div>
+
+            <div id="endgameMessage">
+                <h2>Congratulations!</h2>
+                <button onclick="location.reload()" id="restart">Restart!</button>
+            </div>
+
         </div>
 
         <div id="gamefoot">
