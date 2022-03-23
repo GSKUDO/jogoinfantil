@@ -25,7 +25,7 @@
             <input id="username" type="text">
         </div>
         <br>
-        <button id="start" onclick="start()">START</button>
+        <button id="start" onclick="start()">START!!</button>
     </section>
     
     <br>
@@ -38,7 +38,7 @@
         </div>
         
         <div id="gameimage">
-            <img id="imgword">
+            <img onclick="play()" id="imgword">
         </div>
 
         <div id="content">
@@ -48,17 +48,17 @@
           
             <div id="successMessage">
               <h2>You did it!</h2>
-              <button onclick="init()">Next Word</button>
+              <button class="btn" onclick="init()">Next Word</button>
             </div>
 
             <div id="levelupMessage">
                 <h2>Level up!</h2>
-                <button onclick="init()">Next Word</button>
+                <button class="btn" onclick="init()">Next Word</button>
             </div>
 
             <div id="endgameMessage">
                 <h2>Congratulations!</h2>
-                <button onclick="location.reload()" id="restart">Restart!</button>
+                <button class="btn" onclick="location.reload()" id="restart">Restart!</button>
             </div>
 
         </div>
