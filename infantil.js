@@ -158,7 +158,7 @@ function init() {
   }
 
   // marca os espaços que vao ser ocupados pelas letras 
-  for ( var i=0; i<=wordsize; i++ ) {
+  for ( var i=0; i<wordsize; i++ ) {
     $('<div>' + letters2[i] + '</div>').data( 'letter', letters2[i] ).appendTo( '#cardSlots' ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
