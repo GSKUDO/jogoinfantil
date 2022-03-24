@@ -1,6 +1,6 @@
 // variaveis globais da titlepage
 let username;
-
+          
 //tela de inicio
 function start() {
     document.getElementById('titlepage').style.display = 'none';
