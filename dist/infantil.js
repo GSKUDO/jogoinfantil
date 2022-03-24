@@ -199,7 +199,7 @@ function handleCardDrop( event, ui ) {
           document.getElementById('hallOfFame').style.display = 'flex';
 
           //chama a função que faz o fetch com o servidor 
-          saveData();
+          saveData(username);
         }
       levelnow = levelup[indicelevelup];
     }
@@ -215,14 +215,13 @@ function handleCardDrop( event, ui ) {
   }
 }
 
+let winnersList;
 // função que faz o fetch para mandar o username para o banco de dados 
 // retorna o nome de todos os jogadores do banco de dados para o hall da fama 
-function saveData(){
+function saveData(_username){
   fetch(`http://localhost:3000/player`, { 
     method:"POST",
-    body: {
-      username: username 
-    },
+    body: JSON.stringify({ username: _username }),
     headers: {
       "Content-Type": "application/json"
     }
@@ -231,6 +230,10 @@ function saveData(){
       return result.json()
     })
     .then(result => {
-      console.log(result)
+      console.log(result);
+      winnersList = result;
+      return winnersList;
     })
+
+    document.getElementById("namewinners").innerHTML = winnersList;
 }
