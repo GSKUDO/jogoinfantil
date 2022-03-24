@@ -306,7 +306,7 @@ body{
 #winners {
   margin: auto;
   width: 60%;
-  height: 70%;
+  height: fit-content;
   background-color: #daa520;
   border-style: double;
   border: 4px solid #333;

@@ -112,13 +112,14 @@ function play() {
 function init() {
   // esconde as mensagens de sucesso
   $('#successMessage').hide();
-  $('#levelupMessage').hide();
   $('#successMessage').css( {
     left: '580px',
     top: '250px',
     width: 0,
     height: 0
   } );
+
+  $('#levelupMessage').hide();
   $('#levelupMessage').css( {
     left: '580px',
     top: '250px',
@@ -178,7 +179,7 @@ function handleCardDrop( event, ui ) {
     indicelevel++;
     // se acertou todas as letras,passa para a proxima palavra 
     // onde que da pra acertar quantas palavras tem cada nivel, o maximo eh 8
-    if (indicelevel === 2){
+    if (indicelevel === 1){
       wordsize++;
       indicelevel = 0;
       headlevelnumber++;
@@ -215,7 +216,7 @@ function handleCardDrop( event, ui ) {
   }
 }
 
-let winnersList;
+
 // função que faz o fetch para mandar o username para o banco de dados 
 // retorna o nome de todos os jogadores do banco de dados para o hall da fama 
 function saveData(_username){
@@ -230,10 +231,12 @@ function saveData(_username){
       return result.json()
     })
     .then(result => {
-      console.log(result);
-      winnersList = result;
-      return winnersList;
+      let list = document.getElementById("nameWinners");
+      result.forEach((item) => {
+        let li = document.createElement("li");
+        li.innerText = item;
+        list.appendChild(li);
+      });
+      return result;
     })
-
-    document.getElementById("namewinners").innerHTML = winnersList;
 }
