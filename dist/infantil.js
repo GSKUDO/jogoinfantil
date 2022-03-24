@@ -8,10 +8,8 @@ function start() {
     username = document.getElementById("username").value;
    
     //mostra o cabeçalho do gamepage
-  
     document.getElementById("headwelcome").innerHTML = "Welcome " + username;
-    
-    
+  
 }
 
 // classe para montar as palavras
@@ -112,11 +110,9 @@ function play() {
 
 // inicio do jogo 
 function init() {
- 
   // esconde as mensagens de sucesso
   $('#successMessage').hide();
   $('#levelupMessage').hide();
-  $('#endgameMessage').hide();
   $('#successMessage').css( {
     left: '580px',
     top: '250px',
@@ -129,13 +125,7 @@ function init() {
     width: 0,
     height: 0
   } );
-  $('#endgameMessage').css( {
-    left: '580px',
-    top: '250px',
-    width: 0,
-    height: 0
-  } );
-
+ 
   // Reseta o jogo
   correctLetters  = 0;
   $('#cardPile').html( '' );
