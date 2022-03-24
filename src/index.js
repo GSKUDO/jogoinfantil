@@ -15,6 +15,6 @@ app.post("/player", (req, res)=>{
     console.log("req.body" , req.body)
     const username = req.body.username;
     players.push(username);
-    res.status(200).send(players)
+    res.status(200).send(JSON.stringfy(players))
 })
 
