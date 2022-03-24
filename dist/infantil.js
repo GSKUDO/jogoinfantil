@@ -233,8 +233,12 @@ function saveData(){
   fetch(`http://localhost:3000/player`, { 
     method:"POST",
     body: {
-      username:username
+      username: username 
+    },
+    headers: {
+      "Content-Type": "application/json"
     }
+
   })
     .then(result=>{
       return result.json()
