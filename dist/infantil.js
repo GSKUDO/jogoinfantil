@@ -3,14 +3,15 @@ let username;
 
 //tela de inicio
 function start() {
-    // document.getElementById('titlepage').style.display = 'none';
-    // document.getElementById('gamepage').style.display = 'flex';
+    document.getElementById('titlepage').style.display = 'none';
+    document.getElementById('gamepage').style.display = 'flex';
     username = document.getElementById("username").value;
    
-    // //mostra o cabeçalho do gamepage
+    //mostra o cabeçalho do gamepage
   
-    // document.getElementById("headwelcome").innerHTML = "Welcome " + username;
-    saveData()
+    document.getElementById("headwelcome").innerHTML = "Welcome " + username;
+    
+    
 }
 
 // classe para montar as palavras
@@ -187,7 +188,7 @@ function handleCardDrop( event, ui ) {
     indicelevel++;
     // se acertou todas as letras,passa para a proxima palavra 
     // onde que da pra acertar quantas palavras tem cada nivel, o maximo eh 8
-    if (indicelevel === 8){
+    if (indicelevel === 2){
       wordsize++;
       indicelevel = 0;
       headlevelnumber++;
@@ -204,14 +205,10 @@ function handleCardDrop( event, ui ) {
       } );
         // se terminou os niveis, acaba o jogo 
         if (indicelevelup === 3){
-          $('#endgameMessage').show();
-          $('#endgameMessage').animate( {
-            left: '480px',
-            top: '200px',
-            width: '400px',
-            height: '150px',
-            opacity: 1
-          } );
+          document.getElementById('gamepage').style.display = 'none';
+          document.getElementById('hallOfFame').style.display = 'flex';
+
+          //chama a função que faz o fetch com o servidor 
           saveData();
         }
       levelnow = levelup[indicelevelup];
@@ -228,8 +225,9 @@ function handleCardDrop( event, ui ) {
   }
 }
 
+// função que faz o fetch para mandar o username para o banco de dados 
+// retorna o nome de todos os jogadores do banco de dados para o hall da fama 
 function saveData(){
-  console.log(username);
   fetch(`http://localhost:3000/player`, { 
     method:"POST",
     body: {
@@ -238,12 +236,11 @@ function saveData(){
     headers: {
       "Content-Type": "application/json"
     }
-
   })
-    .then(result=>{
+    .then(result => {
       return result.json()
     })
-    .then(result=>{
+    .then(result => {
       console.log(result)
     })
 }
