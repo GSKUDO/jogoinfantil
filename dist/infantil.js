@@ -179,7 +179,7 @@ function handleCardDrop( event, ui ) {
     indicelevel++;
     // se acertou todas as letras,passa para a proxima palavra 
     // onde que da pra acertar quantas palavras tem cada nivel, o maximo eh 8
-    if (indicelevel === 1){
+    if (indicelevel === 8){
       wordsize++;
       indicelevel = 0;
       headlevelnumber++;
